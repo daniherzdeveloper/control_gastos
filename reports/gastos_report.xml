@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <record id="action_report_gastos" model="ir.actions.report">
+            <field name="name">gastos</field>
+            <field name="model">gastos</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">control_gastos.report_template_gastos</field>
+            <field name="report_file">control_gastos.report_template_gastos</field>
+            <!-- Utiliza la sintaxis correcta para formatear el nombre del informe -->
+            <field name="print_report_name">"Informe de Gastos: %s" % object.descripcion</field>
+            <field name="binding_model_id" ref="model_gastos"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="action_report_gastos_seleccion" model="ir.actions.report">
+            <field name="name">gastos_selccion</field>
+            <field name="model">gastos</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">control_gastos.report_template_gastos_seleccion</field>
+            <field name="report_file">control_gastos.report_template_gastos_seleccion</field>
+            <!-- Utiliza la sintaxis correcta para formatear el nombre del informe -->
+            <field name="print_report_name">"Informe de Gastos Seleccionados: %s" % object.descripcion</field>
+            <field name="binding_model_id" ref="model_gastos"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

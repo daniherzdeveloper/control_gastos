@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_gastos_user,Acceso a Gastos,model_gastos,gastos_group_user,1,1,1,1
+access_categorias_user,Acceso a Categorias,model_categoria,gastos_group_user,1,1,1,1

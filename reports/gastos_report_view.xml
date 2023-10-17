@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <template id="report_template_gastos">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="custom-header">
+                            <div class="header-text">
+                                <h1><span t-field="o.descripcion"/></h1>
+                            </div>
+                        </div>
+                        <div class="page">
+                            <div class="report-content">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Descripción</th>
+                                            <th>Fecha del Gasto</th>
+                                            <th>Categoría</th>
+                                            <th>Gasto</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><span t-field="o.descripcion"/></td>
+                                            <td><span t-field="o.fecha_gasto"/></td>
+                                            <td><span t-field="o.categoria_id.name"/></td>
+                                            <td><span t-field="o.gasto"/></td>
+                                        </tr>
+                                        <!-- Agrega más filas según tus necesidades -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <p>Generado por: <span t-field="user.name"/></p>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
+

@@ -1,0 +1,21 @@
+{
+    'name': 'Control de Gastos',
+    'summary': 'Control de Gastos',
+    'author': 'daniherzdeveloper',
+    'category': 'General',
+    'version': '1.0',
+    'license': 'AGPL-3',
+    'depends': ['base'],
+    'data': [
+        'views/menu_gasto.xml',
+        'views/gastos_views.xml',
+        'views/categorias_views.xml',
+        'reports/gastos_report.xml',
+        'reports/gastos_report_view.xml',
+        'reports/report_gastos_seleccion.xml',
+        'security/gastos_security.xml',
+        'security/ir.model.access.csv',
+    ],
+    'installable': True,
+    'application': True,
+}

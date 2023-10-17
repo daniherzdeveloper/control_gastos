@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- Vista tree -->
+    <record id="gastos_view_tree" model="ir.ui.view">
+        <field name="name">gastos.view.tree</field>
+        <field name="model">gastos</field>
+        <field name="arch" type="xml">
+            <tree string="Gastos">
+                <field name="descripcion"/>
+                <field name="categoria_id"/>
+                <field name="fecha_gasto"/>
+                <field name="gasto" sum="Total Gasto" widget="monetary" decoration-bf="True"/>
+                <field name="currency_id" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista Form -->
+    <record id="gastos_view_form" model="ir.ui.view">
+        <field name="name">gastos.view.form</field>
+        <field name="model">gastos</field>
+        <field name="arch" type="xml">
+            <form string="Gasto">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="descripcion"/>
+                            <field name="categoria_id"/>
+                            <field name="fecha_gasto"/>
+                        </group>
+                        <group>
+                            <field name="gasto" />
+                            <field name="currency_id" /> 
+                        </group>  
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista de búsqueda -->
+    <record id="gastos_view_search" model="ir.ui.view">
+        <field name="name">gastos.view.search</field>
+        <field name="model">gastos</field>
+        <field name="arch" type="xml">
+            <search string="Gastos">
+                <field name="descripcion" string="Descripción" />
+                <field name="categoria_id" string="Categoria" />
+                <field name="gasto_total" string="Gasto" />
+                <filter string="Fechs del Gasto" name="fecha_gasto" date="fecha_gasto"/>
+
+                <group string="Agrupar por">
+                    <filter name="fecha_del_gasto" string="Fecha del Gasto" context="{'group_by': 'fecha_gasto'}"/>
+                    <filter name="Categoría" string="Categoría" context="{'group_by': 'categoria_id'}"/>
+                    <filter name="Moneda" string="Moneda" context="{'group_by': 'currency_id'}"/>
+                </group>
+
+                <searchpanel>
+                    <field name="categoria_id" string="Categoria" icon="fa-users" />
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+    <!-- Vista Graph -->
+    <record id="gastos_view_graph" model="ir.ui.view">
+        <field name="name">gastos.view.graph</field>
+        <field name="model">gastos</field>
+        <field name="arch" type="xml">
+            <graph string="" sample="1">
+                <field name="gasto" type="measure"/>
+            </graph>
+        </field>
+    </record>
+</odoo>
+

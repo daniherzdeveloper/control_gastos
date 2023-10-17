@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_template_gastos_seleccion">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="custom-header">
+                        <div class="header-text">
+                            <h1>Gastos del Mes</h1>
+                        </div>
+                    </div>
+                    <div class="page">
+                        <div class="report-content">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Descripción</th>
+                                        <th>Fecha del Gasto</th>
+                                        <th>Categoría</th>
+                                        <th>Gasto</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="docs" t-as="record">
+                                        <td><span t-field="record.descripcion"/></td>
+                                        <td><span t-field="record.fecha_gasto"/></td>
+                                        <td><span t-field="record.categoria_id.name"/></td>
+                                        <td><span t-field="record.gasto"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="clearfix">
+                            <div id="total" class="row">
+                                <div class="col-6 ms-auto">
+                                    <table class="table table-sm table-bordered" style="page-break-inside: avoid; position:relative;">
+                                        <tbody>
+                                            <tr class="border-black o_subtotal">
+                                                <td>
+                                                    <strong>Total de Gastos</strong>
+                                                </td>
+                                                <td class="text-end">
+                                                    <span>
+                                                        <span class="oe_currency_value" t-esc="sum(record.gasto for record in docs)"/>
+                                                        $ 
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <p>Generado por: <span t-field="user.name"/></p>
+                    </div>
+                </t>   
+            </t>
+        </template>
+    </data>
+</odoo>
+

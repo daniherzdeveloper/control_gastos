@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- Vista formulario para libros -->
+    <record id="categoria_view_tree" model="ir.ui.view">
+        <field name="name">categoria.view.tree</field>
+        <field name="model">categoria</field>
+        <field name="arch" type="xml">
+            <tree string="Categoria">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="categoria_view_form" model="ir.ui.view">
+        <field name="name">categoria.view.form</field>
+        <field name="model">categoria</field>
+        <field name="arch" type="xml">
+            <form string="Categoria">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
+

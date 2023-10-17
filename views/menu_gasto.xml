@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <record id="gastos_action" model="ir.actions.act_window">
+        <field name="name">Gastos</field>
+        <field name="res_model">gastos</field>
+        <field name="view_mode">tree,form,graph</field>
+        <!-- <field name="context">{"group_by": ("fecha_gasto:year", "fecha_gasto:month")}</field> -->
+    </record>
+
+    <record id="categoria_action" model="ir.actions.act_window">
+        <field name="name">Categoria</field>
+        <field name="res_model">categoria</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+       
+    <menuitem
+        id="gastos_menu"
+        name="Control de Gastos"
+        sequence="10"/>
+
+    <menuitem 
+        id="menu_gastos"
+        name="Gastos"
+        parent="gastos_menu"
+        action="gastos_action"
+        sequence="10" />
+
+    <menuitem 
+        id="menu_categoria"
+        name="Categorias"
+        parent="gastos_menu"
+        action="categoria_action"
+        sequence="10" />
+
+</odoo>
